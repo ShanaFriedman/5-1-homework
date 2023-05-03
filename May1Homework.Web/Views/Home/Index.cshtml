@@ -1,0 +1,74 @@
+﻿@using May1Homework.Data
+@model HomeViewModel
+
+
+<div class="col-md-8 offset-md-2" style="margin-top:100px">
+
+    @foreach (Question q in Model.Questions)
+    {
+        <div class="card card-body bg-light">
+            <h4>
+                <a href="/home/viewquestion?id=@q.Id">
+                    @q.Title
+                </a>
+            </h4>
+
+            <div>
+                <span>Tags:</span>
+                @foreach(QuestionTag qt in q.QuestionTags)
+                {
+                    <span class="badge bg-primary">@qt.Tag.Name</span>
+                }
+                
+            </div>
+            <div style="margin-top: 10px;">
+                @(q.Text.Length < 200 ? q.Text : q.Text.Substring(0, 200) + "..." )
+                @*@q.Text*@
+            </div>
+            @*<span>Likes: 2</span>*@
+            <br />
+            <span>@q.Answers.Count answer(s)</span>
+        </div>
+    }
+
+
+
+    
+    @*<div class="card card-body bg-light">
+        <h4>
+            <a href="/questions/viewquestion?id=39">
+                Modifying list of ValueTuples vs list of integers
+            </a>
+        </h4>
+        <div>
+            <span>Tags:</span>
+            <span class="badge bg-primary">c#</span>
+            <span class="badge bg-primary">for-loop</span>
+            <span class="badge bg-primary">valuetuple</span>
+        </div>
+        <div style="margin-top: 10px;">
+            Having trouble wrapping my head around the concept of modifying these two different lists. So when using a regular for loop to iterate over each one, we can directly modify the list of integers, but c...
+        </div>
+        <span>Likes: 1</span>
+        <br />
+        <span>1 answer(s)</span>
+    </div>
+    <div class="card card-body bg-light">
+        <h4>
+            <a href="/questions/viewquestion?id=38">
+                This is a test question
+            </a>
+        </h4>
+        <div>
+            <span>Tags:</span>
+            <span class="badge bg-primary">c#</span>
+            <span class="badge bg-primary">asp.net</span>
+        </div>
+        <div style="margin-top: 10px;">
+            Some text goes here.... Some text goes here.... Some text goes here.... Some text goes here.... Some text goes here.... Some text goes here.... Some text goes here.... Some text goes here.... Some tex...
+        </div>
+        <span>Likes: 2</span>
+        <br />
+        <span>2 answer(s)</span>
+    </div>*@
+</div>
