@@ -71,5 +71,13 @@ namespace May1Homework.Data
             context.Answers.Add(a);
             context.SaveChanges();
         }
+        public List <Question> GetByTag(int tagId)
+        {
+            var context = new QuestionAnswerDbContext(_connectionString);
+            return context.Questions.Where(q => q.QuestionTags.Any(x => x.Tag.Id == tagId))
+                .Include(q => q.Answers)
+                .Include(q => q.QuestionTags)
+                .ThenInclude(qt => qt.Tag).ToList();
+        }
     }
 }

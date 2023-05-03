@@ -63,5 +63,14 @@ namespace May1Homework.Web.Controllers
             QARepo.AddAnswer(a);
             return Redirect("/");
         }
+        public IActionResult ViewByTag(int tagId)
+        {
+            var QARepo = new QuestionAnswerRepository(_connectionString);
+            HomeViewModel vm = new()
+            {
+                Questions = QARepo.GetByTag(tagId)
+            };
+            return View(vm);
+        }
     }
 }

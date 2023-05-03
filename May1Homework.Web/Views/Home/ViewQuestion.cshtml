@@ -14,7 +14,8 @@
         <span>Tags:</span>
         @foreach(QuestionTag qt in Model.Question.QuestionTags)
         {
-            <span class="badge bg-primary">@qt.Tag.Name</span>
+            <a href="/home/viewbytag?tagid=@qt.Tag.Id" class="badge bg-primary">@qt.Tag.Name</a>
+            @*<span class="badge bg-primary">@qt.Tag.Name</span>*@
         }
         
         <br />

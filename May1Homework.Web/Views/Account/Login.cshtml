@@ -10,9 +10,17 @@
         <input type="hidden" name="returnurl" />
         <input type="text" name="email" placeholder="Email" class="form-control" />
         <br />
-        <input type="password" name="password" placeholder="Password" class="form-control" />
+        <input type="password" name="password" placeholder="Password" class="form-control password" />
         <br />
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input show-password" id="show-password" value="true">
+            <label class="form-check-label" for="show-password">Show Password</label>
+        </div>
         <button class="btn btn-primary">Login</button>
     </form>
     <a href="/account/signup">Sign up for a new account</a>
 </div>
+
+@section scripts{
+    <script src="~/js/login-signup.js"></script>
+}

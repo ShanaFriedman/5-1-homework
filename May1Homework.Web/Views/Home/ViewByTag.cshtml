@@ -15,15 +15,15 @@
 
             <div>
                 <span>Tags:</span>
-                @foreach(QuestionTag qt in q.QuestionTags)
+                @foreach (QuestionTag qt in q.QuestionTags)
                 {
-                    <a href="/home/viewbytag?tagid=@qt.Tag.Id" class="badge bg-primary">@qt.Tag.Name</a>
-                    @*<span class="badge bg-primary">@qt.Tag.Name</span>*@
+                    <span class="badge bg-primary">@qt.Tag.Name</span>
                 }
-                
+
             </div>
             <div style="margin-top: 10px;">
-                @(q.Text.Length < 200 ? q.Text : q.Text.Substring(0, 200) + "..." )
+                @(q.Text.Length < 200 ? q.Text : q.Text.Substring(0, 200) + "...")
+                @*@q.Text*@
             </div>
             @*<span>Likes: 2</span>*@
             <br />
